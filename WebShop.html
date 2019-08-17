@@ -1,0 +1,715 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GPU Shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
+                <div class="container">
+                    <a class="navbar-brand text-warning" href="#">GPU Shop</a>
+                    <button class="navbar-toggler border-0 text-warning" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        &#9776;
+                    </button>
+                    <div class="collapse navbar-collapse" id="exCollapsingNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="GpuContact.html" class="nav-link">Contact</a></li>
+
+                        </ul>
+                        <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+                            
+                            <li class="dropdown order-1">
+                                <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn btn-warning dropdown-toggle">Login <span class="caret"></span></button>
+                                <ul class="dropdown-menu dropdown-menu-right mt-2" id="dropdownLogin">
+                                   <li class="px-3 py-2">
+                                       <form class="form" role="form">
+                                            <div class="form-group">
+                                                <input id="username" placeholder="Username" class="form-control form-control-sm" type="text" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input id="password" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                    <input type="button" value="Login" class="btn btn-dark btn-block" onclick="javascript:logIn()" />
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <small id="status">Please fill in the required fields</small>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button type="button" id="myCart" class="btn btn-warning mc" data-toggle="modal" data-target="#exampleModal2" style="visibility:hidden;">My Cart</button>
+                            </li>
+                            <li>
+                                <button type="button" id="logOut"  class="btn btn btn-warning" onClick="logOut()" style="visibility:hidden;">Logout<span class="caret"></span></button>
+                            </li>
+                            <li>
+                                <p id="userProfile"></p>
+                            </li>
+                            <li>
+                                <i class="fas fa-user" id="userIcon"style="visibility:hidden;"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+<!-- Modal/Cart -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">My Cart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="usersItams">Your Cart is empty.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btnColor" onClick="clearAllProducts()">CLEAR ALL</button>
+                <button type="button" class="btn btn-secondary" id="btnColor" data-dismiss="modal">CLOSE</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+<div class="container-fluid section">
+    <div class="row justify-content-center">
+        <div class="col-md-4 how-img">
+            <img src="logogpu.png" class="img-fluid" height = 500 width = 500 />
+        </div>
+        <div class="col-md-4">
+            <h1>RTX. IT'S ON.</h1>
+                        <h4 class="subheading">GEFORCE RTX</h4>
+                        <button type="button" class="btn btn-dark" id="more" >MORE</i></button>
+        <p class="text-muted" id="par"></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center section2">
+        <div class="col-md-4">
+            <h4>RT CORES</h4>
+            <p class="text-muted">Dedicated ray tracing hardware enables fast real-time ray tracing with physically accurate shadows, reflections, refractions, and global illumination. NVIDIA Turing is the world’s most advanced GPU architecture. The high-end TU102 GPU includes
+                18.6 billion transistors fabricated on TSMC’s 12 nm FFN (FinFET NVIDIA) high-performance
+                manufacturing process. </p>
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="speedlogo.png" class="img-fluid" height = 300 width = 300/>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container shop">  
+    <div class="row text-center">
+        <div class="col-sm text-center slider">
+            <h2 class="text-dark">CHOOSE YOUR GPU</h2>
+            <form name = "myForm">
+            <img src = "2060.jpg" class="rounded img-fluid" id= "imgDisplay" height = 600 width = 600>
+            <br>
+            <p  class="text-dark" id="article"></p>
+            <p class="text-dark" id="price"></p>
+            <input type="button" value="MORE DETAILS" class="btn btn-dark" id="btnDetails" data-toggle="modal" data-target="#exampleModal"  onClick="moreDetails()"/>
+            <br>
+            <br>
+            <button type="button" class="btn btn-dark" id="buyNow" onClick = "addToCart()" style="visibility:hidden;">Add To<i class="fas fa-shopping-cart"></i></button>
+            <br>
+            <br>
+            <input type = "button" value = "Next" class="btn btn-dark" id="btnColor" onClick = "upDate()">
+            <input type = "button" value = "Back" class="btn btn-dark" id="btnColor" onClick = "upDateBack()">
+            </form>
+            </div>
+    </div>              
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">GPU Specifications</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+          <table id="tableItams">
+            <tr>
+                <td>Release Date</td>
+                <td id="modalContent1"></td>
+            </tr>
+            <tr>
+                <td>GPU Name</td>
+                <td id="modalContent2"></td>
+            </tr>
+            <tr>
+                <td>Process Size</td>
+                <td id="modalContent3"></td>
+            </tr>
+            <tr>
+                <td>Memory Size</td>
+                <td id="modalContent4"></td>
+            </tr>
+            <tr>
+                <td>GPU Clock</td>
+                <td id="modalContent5"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" id="btnColor" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<button onclick="topFunction()" id="myBtnn" title="Go to top"></button>
+
+<footer class="footer-basic-centered">
+
+    <p class="footer-company-motto">GPU Shop</p>
+
+    <p class="footer-links">
+        <a href="#">Home</a>
+        ·
+        <a href="about.html">About</a>
+        ·
+        <a href="GpuContact.html">Contact</a>
+    </p>
+
+    <p class="footer-company-name">GPU Shop-Filip Gajic &copy; 2019</p>
+
+</footer>
+
+<style>
+html{
+	scroll-behavior: smooth;
+}
+    
+body{
+    background-color: #ffc107;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.section2{
+    opacity:0;
+}
+
+
+
+.footer-basic-centered{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;
+	font: normal 18px sans-serif;
+	padding: 45px;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-basic-centered .footer-company-motto{
+	color:  #8d9093;
+	font-size: 24px;
+	margin: 0;
+}
+
+.footer-basic-centered .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	margin: 0;
+}
+
+.footer-basic-centered .footer-links{
+	list-style: none;
+	font-weight: bold;
+	color:  #ffffff;
+	padding: 35px 0 23px;
+	margin: 0;
+}
+
+.footer-basic-centered .footer-links a{
+	display:inline-block;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 600px) {
+
+	.footer-basic-centered{
+		padding: 35px;
+	}
+
+	.footer-basic-centered .footer-company-motto{
+		font-size: 18px;
+	}
+
+	.footer-basic-centered .footer-company-name{
+		font-size: 12px;
+	}
+
+	.footer-basic-centered .footer-links{
+		font-size: 14px;
+		padding: 25px 0 20px;
+	}
+
+	.footer-basic-centered .footer-links a{
+		line-height: 1.8;
+	}
+}
+
+.slider{
+margin-top: 372px;
+}
+
+.text-dark{
+    font-size: 30;
+    font-weight: 500;
+}
+
+.section{
+    margin-top: 300px;  
+}
+
+.section2{
+    margin-top: 400px;
+}
+
+#more{
+    color: #ffc107;
+    font-weight: bold;
+}
+
+#more:hover{
+    color:#292c2f;
+    background-color:#ffc107;
+}
+
+#buyNow{
+    color: #ffc107;
+    font-weight: bold;
+}
+
+#buyNow:hover{
+    color:#292c2f;
+    background-color:#ffc107;
+}
+
+.fa-shopping-cart{
+    margin-left: 4px; 
+}
+
+#mycart{
+    margin-right:5px;
+}
+
+#usersItams{
+    font-weight: 600;
+}
+
+#btnColor{
+    color: #ffc107;
+    font-weight: bold;
+}
+
+#btnDetails {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+#btnDetails:hover {
+    color:#292c2f;
+    background-color:#ffc107;
+    font-weight: bold;
+}
+
+#par{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#article{
+    font-size: 28px;
+}
+
+#price{
+    font-size: 20px;
+}
+
+#userProfile{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 17px;
+    color:#ffc107;
+}
+
+.fa-user{
+    margin-top: 10px;
+    margin-left: 5px;
+    color:#ffc107;
+}
+
+#tableItams{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tableItams tr{
+    background-color: #f2f2f2;
+}
+
+#tableItams tr:hover{
+    background-color: #ddd;
+}
+
+#myBtnn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 10px;
+  border: none;
+  outline: none;
+  background: rgba(85, 85, 85, 1) url('img/cd-top-arrow.png') no-repeat center 50% ;
+  color: white;
+  cursor: pointer;
+  padding: 25px;
+  border-radius: 5%;
+}
+
+#myBtnn:hover {
+  background-color:#A9A9A9;
+  transition: 0.4s;
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script>
+//Login
+    var loggedIn = false;
+        function logIn() {
+           
+           var check = document.getElementById("status");
+           var username = document.getElementById('username').value;
+           var password = document.getElementById('password').value; 
+           var users = [
+                            { username: 'user1', password: 'pass1' },
+                            { username: 'user2', password: 'pass2' },
+                            { username: 'user3', password: 'pass3' }
+                        ];
+        
+            localStorage.setItem("allusers", JSON.stringify(users));
+           for (var i = 0; i < users.length; i++) {
+                if(username == users[i].username && password == users[i].password) {
+                 loggedIn = true;
+                 localStorage.setItem("loggedInUser", username);
+                 document.getElementById("userProfile").innerHTML = localStorage.getItem("loggedInUser");
+                 document.getElementById("dropdownMenu1").style.visibility = 'hidden'; 
+                 document.getElementById("dropdownLogin").style.visibility = 'hidden'; 
+                 document.getElementById("logOut").style.visibility = 'visible';
+                 document.getElementById("myCart").style.visibility = 'visible';
+                 document.getElementById("buyNow").style.visibility = 'visible';
+                 document.getElementById("userIcon").style.visibility = 'visible';
+
+                 var localStorageKey = localStorage.getItem("loggedInUser") + "proizvodi";
+				 var c = [];
+				 c = JSON.parse(localStorage.getItem(localStorageKey));
+
+				 if (c != null && c.length != 0) {
+					document.getElementById("usersItams").innerHTML = c.join("<br>");
+                 }
+                 break;
+              }else{
+                check.innerHTML = "Check Password or Username";
+                check.style.color = "red";
+              }
+           }
+        }
+
+//Logout
+    function logOut(){
+        localStorage.removeItem("loggedInUser");
+        document.getElementById("userProfile").innerHTML = "";
+        document.getElementById("dropdownMenu1").style.visibility = 'visible'; 
+         document.getElementById("dropdownLogin").style.visibility = 'visible'; 
+        document.getElementById("logOut").style.visibility = 'hidden';
+        document.getElementById("myCart").style.visibility = 'hidden';
+        document.getElementById("buyNow").style.visibility = 'hidden';
+        document.getElementById("userIcon").style.visibility = 'hidden';
+        document.getElementById("usersItams").innerHTML = "Your Cart is empty.";  
+        document.getElementById('username').value ='';
+        document.getElementById('password').value =''; 
+        var check = document.getElementById("status");
+        check.innerHTML = "Please fill in the required fields";
+        check.style.color = "#000";
+
+    }
+
+// CLEAR CART
+	function clearAllProducts() {
+		document.getElementById("usersItams").innerHTML = "Your Cart is empty.";
+		var localStorageKey = localStorage.getItem("loggedInUser") + "proizvodi";
+		var a = [];
+		localStorage.setItem(localStorageKey, JSON.stringify(a));
+	}
+
+// BUY PRODUCT
+	function addToCart() {
+		var productName = product[Current];
+		var productPrice = price[Current1];
+		
+		var localStorageKey = localStorage.getItem("loggedInUser") + "proizvodi";
+		
+		var b = localStorage.getItem(localStorageKey);
+		if (b == null) {
+			var a = [];
+			a.push(JSON.parse(JSON.stringify(productName + " - " + productPrice)));
+			localStorage.setItem(localStorageKey, JSON.stringify(a));
+		} else {
+		 var a = [];
+			a = JSON.parse(localStorage.getItem(localStorageKey));
+			a.push(JSON.parse(JSON.stringify(productName + " - " + productPrice)));
+			localStorage.setItem(localStorageKey, JSON.stringify(a));
+		}
+
+		var c = [];
+		c = JSON.parse(localStorage.getItem(localStorageKey));
+
+		document.getElementById("usersItams").innerHTML = c.join("<br>");
+        alert("Your new " + product[Current] + " is in the Cart.");
+    }
+	
+//Shop
+var rD ="";
+var GPUname ="";
+var pS ="";
+var mS ="";
+var GPUclock = "";
+var trenutniProdukt = "";
+
+var price = ['400€','550€','700€','999€']; 
+var product = ['Rtx 2060','Rtx 2070','Rtx 2080','Rtx 2080ti']; 
+var pozicija = 0;
+var Current = 0;
+var Current1 = 0;
+var slike = ['2060.jpg','2070.jpg','2080.jpg','2080ti.jpg'];
+document.getElementById("article").innerHTML = product[Current];
+document.getElementById("price").innerHTML = price[Current1];	
+
+function upDate(){
+	var slika = document.getElementById("imgDisplay");
+	var nazivSlike = slika.src;
+	var i;
+	for(i = 0;i < slike.length;i++){
+		if(nazivSlike == slike[i]){
+			pozicija = i;
+			break;
+		}
+	}
+	if(pozicija == 0 && slike[0] != nazivSlike){
+		//greska
+	}
+	if((pozicija + 1) >= slike.length){
+		pozicija = 0;	
+	}else{
+		pozicija++;	
+	}
+	var nextImg = slike[pozicija];
+	document.getElementById("imgDisplay").src = nextImg;
+
+//Next name product
+  if(Current == product.length - 1){
+            Current = 0}
+        else{
+            Current++;}
+
+        document.getElementById("article").innerHTML = product[Current];
+
+//Price next
+if(Current1 == price.length - 1){
+            Current1 = 0}
+        else{
+            Current1++;}
+
+        document.getElementById("price").innerHTML = price[Current1];
+}
+
+function upDateBack(){
+	var slika = document.getElementById("imgDisplay");
+	var nazivSlike = slika.src;
+	var i;
+	for(i = 0;i < slike.length;i++){
+		if(nazivSlike == slike[i]){
+			pozicija = i;
+			break;
+		}
+	}
+	if((pozicija-1) < 0){
+		pozicija = slike.length - 1;
+	}else{
+		pozicija--;	
+	}
+	var previousImg = slike[pozicija];
+	document.getElementById("imgDisplay").src = previousImg;	
+
+
+//Back name product
+  if(Current == 0){
+            Current = product.length - 1;}
+        else{
+            Current--;}
+
+        document.getElementById("article").innerHTML = product[Current];
+
+//Price back
+    if(Current1 == 0){
+            Current1 = price.length - 1;}
+        else{
+            Current1--;}
+
+        document.getElementById("price").innerHTML = price[Current1];
+}
+
+//More details
+function moreDetails(){
+        trenutniProdukt = product[Current];
+    if (trenutniProdukt == "Rtx 2060"){
+        rD = "Jan 7th, 2019";
+        GPUname = "Rtx 2060";
+        pS = "12 nm";
+        mS = "6 GB"; 
+        GPUclock = "1365 MHz";
+        document.getElementById("modalContent1").innerHTML= rD;
+        document.getElementById("modalContent2").innerHTML= GPUname;
+        document.getElementById("modalContent3").innerHTML= pS;
+        document.getElementById("modalContent4").innerHTML= mS;
+        document.getElementById("modalContent5").innerHTML= GPUclock ;
+    }
+
+    if (trenutniProdukt == "Rtx 2070"){
+        rD = "Oct 17th, 2018";
+        GPUname = "Rtx 2070";
+        pS = "12 nm";
+        mS = "8 GB"; 
+        GPUclock = "1410 MHz";
+        document.getElementById("modalContent1").innerHTML= rD;
+        document.getElementById("modalContent2").innerHTML= GPUname;
+        document.getElementById("modalContent3").innerHTML= pS;
+        document.getElementById("modalContent4").innerHTML= mS;
+        document.getElementById("modalContent5").innerHTML= GPUclock ;
+    }
+
+    if (trenutniProdukt == "Rtx 2080"){
+        rD = "Sep 20th, 2018";
+        GPUname = "Rtx 2080";
+        pS = "12 nm";
+        mS = "8 GB"; 
+        GPUclock = "1515 MHz";
+        document.getElementById("modalContent1").innerHTML= rD;
+        document.getElementById("modalContent2").innerHTML= GPUname;
+        document.getElementById("modalContent3").innerHTML= pS;
+        document.getElementById("modalContent4").innerHTML= mS;
+        document.getElementById("modalContent5").innerHTML= GPUclock ;
+    }
+
+    if (trenutniProdukt == "Rtx 2080ti"){
+        rD = "Sep 20th, 2018";
+        GPUname = "Rtx 2080ti";
+        pS = "12 nm";
+        mS = "11 GB"; 
+        GPUclock = "1350 MHz";
+        document.getElementById("modalContent1").innerHTML= rD;
+        document.getElementById("modalContent2").innerHTML= GPUname;
+        document.getElementById("modalContent3").innerHTML= pS;
+        document.getElementById("modalContent4").innerHTML= mS;
+        document.getElementById("modalContent5").innerHTML= GPUclock ;
+    }
+}
+
+
+//More info butten
+var info1 = document.getElementById("par");
+var GpuText = info1;
+GpuText.innerHTML =  "NVIDIA® GeForce® RTX is powered by NVIDIA Turing™, the world’s most advanced GPU architecture for gamers and creators. Get truly next-gen performance and features with dedicated AI and ray tracing cores for the ultimate experience.";
+$("#par").hide();
+
+$(document).ready(function() {
+	$("#more").click(function() {
+        var $this = $(this);
+        $this.toggleClass('SeeMore2');
+		if($this.hasClass('SeeMore2')){
+			$this.text('LESS');			
+		} else {
+			$this.text('MORE');
+		}
+        $("#par").fadeToggle( "slow", "linear" );
+    });
+});
+
+//FadeIn Section
+
+$(document).ready(function() {
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+    
+        /* Check the location of each desired element */
+        $('.section2').each( function(i){
+            
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+                
+                $(this).animate({'opacity':'1'},1200);
+                    
+            }
+            
+        }); 
+    
+    });
+    
+});
+
+//Back to top
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtnn").style.display = "block";
+    } else {
+        document.getElementById("myBtnn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+</script>
+</body>
+</html>

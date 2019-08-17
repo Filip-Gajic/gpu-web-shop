@@ -1,0 +1,189 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GPU Shop About</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous">
+    </script>
+    <script src="gpuaboutJs.js"></script>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
+                <div class="container">
+                    <a class="navbar-brand text-warning" href="WebShop.html">GPU Shop</a>
+                    <button class="navbar-toggler border-0 text-warning" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        &#9776;
+                    </button>
+                    <div class="collapse navbar-collapse" id="exCollapsingNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a href="about.html" class="nav-link text-warning">About</a></li>
+                            <li class="nav-item"><a href="GpuContact.html" class="nav-link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+<div class="container-fluid">
+        <div class="row justify-content-center section1">
+            <div class="col-md-4">
+                <h2 id="head1"></h2>
+                <br>
+                <p class="text-muted" id="aboutus1"></p>
+                  <br>
+                  <p class="text-muted" id="aboutus2"></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="logonvidia.png" class="img-fluid" height = 300 width = 300/>
+            </div>
+        </div> 
+</div>
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center section2">
+        <div class="col-md-8 text-center" >
+            <h2 id="head2"></h2>
+            <br>
+            <p class="text-muted" id="aboutus3"></p>
+              <br>
+            <form action="GpuContact.html">
+                <input type="submit" class="btn btn-dark" id="btnColor" value="CONTACT US" />
+            </form>
+        </div>
+    </div> 
+</div>
+
+<footer class="footer-basic-centered">
+
+    <p class="footer-company-motto">GPU Shop</p>
+
+    <p class="footer-links">
+        <a href="WebShop.html">Home</a>
+        ·
+        <a href="#">About</a>
+        ·
+        <a href="GpuContact.html">Contact</a>
+    </p>
+
+    <p class="footer-company-name">GPU Shop-Filip Gajic &copy; 2019</p>
+
+</footer>
+
+<style>
+body{
+    background-color: #ffc107;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.footer-basic-centered{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;
+	font: normal 18px sans-serif;
+	padding: 45px;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-basic-centered .footer-company-motto{
+	color:  #8d9093;
+	font-size: 24px;
+	margin: 0;
+}
+
+.footer-basic-centered .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	margin: 0;
+}
+
+.footer-basic-centered .footer-links{
+	list-style: none;
+	font-weight: bold;
+	color:  #ffffff;
+	padding: 35px 0 23px;
+	margin: 0;
+}
+
+.footer-basic-centered .footer-links a{
+	display:inline-block;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 600px) {
+
+	.footer-basic-centered{
+		padding: 35px;
+	}
+
+	.footer-basic-centered .footer-company-motto{
+		font-size: 18px;
+	}
+
+	.footer-basic-centered .footer-company-name{
+		font-size: 12px;
+	}
+
+	.footer-basic-centered .footer-links{
+		font-size: 14px;
+		padding: 25px 0 20px;
+	}
+
+	.footer-basic-centered .footer-links a{
+		line-height: 1.8;
+	}
+}
+.section1{
+    margin-top: 200px;
+}
+
+.section2{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+#btnColor{
+    color: #ffc107;
+    font-weight: bold;
+}
+
+#btnColor:hover{
+    color:#292c2f;
+    background-color:#ffc107;
+}
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script>
+
+var head1 = document.getElementById("head1");
+var aboutus1 = document.getElementById("aboutus1");
+var aboutus2 = document.getElementById("aboutus2");
+var head2 = document.getElementById("head2");
+var aboutus3 = document.getElementById("aboutus3");
+
+head1.innerHTML = "NVIDIA'S INVENTION OF THE GPU";
+aboutus1.innerHTML = "In 1999 sparked the growth of the PC gaming market, redefined modern computer graphics, and revolutionized parallel computing. More recently, GPU deep learning ignited modern AI — the next era of computing — with the GPU acting as the brain of computers,  robots, and self-driving cars that can perceive and understand the world. ";
+aboutus2.innerHTML = " We pioneered a supercharged form of computing loved by the most demanding computer users in the world — scientists, designers, artists, and gamers. For them, we’ve built the equivalent of a time machine.";
+head2.innerHTML = "READY TO LEARN MORE?";
+aboutus3.innerHTML = "Get answers to all your support, sales, and partner questions.";
+
+</script>
+</body>
+</html>
